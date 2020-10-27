@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="elo.css">
 </head>
 <body>
     <div class="con">
@@ -29,9 +29,13 @@
     ?>
    </div>
     </div>
-    <div class="item b">    <?php
+    <div class="item b">  
+    <h2>Zadanie 2 'SELECT avg(zarobki) as zarobcie , nazwa_dzial FROM pracownicy, organizacja where id_org=dzial group by dzial'</h2>
+    <div class="">
+    <?php
         $conn= new mysqli("localhost","root","","nauka1");
-        $result=$conn->query('SELECT avg(zarobki) as zarobcie , nazwa_dzial FROM pracownicy, organizacja where id_org=dzial group by dzial');
+        $sql= ('SELECT avg(zarobki) as zarobcie , nazwa_dzial FROM pracownicy, organizacja where id_org=dzial group by dzial');
+        $result=$conn->query($sql);
         echo("<table border=1>");
         echo("<th>avg zarobki</th>");
         echo("<th>dzial</th>");
@@ -41,10 +45,11 @@
                 echo("</tr>");
             }
         echo("</table>");
-    ?>
-        
+    ?> 
+    </div>   
     </div>
-    <div class="item c">    <?php
+    <div class="item c">    
+    <?php
         $conn= new mysqli("localhost","root","","nauka1");
         $result=$conn->query('SELECT * FROM pracownicy');
         echo("<table border=1>");
@@ -59,7 +64,8 @@
             }
         echo("</table>");
     ?></div>
-    <div class="item d">    <?php
+    <div class="item d">    
+    <?php
         $conn= new mysqli("localhost","root","","nauka1");
         $result=$conn->query('SELECT * FROM pracownicy');
         echo("<table border=1>");
@@ -73,7 +79,8 @@
                 echo("</tr>");
             }
         echo("</table>");
-    ?></div>
+    ?>  
+    </div>
     </div>
     
 </body>
